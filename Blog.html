@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BioIntel – Blog | Jaehyun Lee, Freelance Bioinformatician">
+  <title>BioIntel – Blog</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Header / Navigation -->
+  <header class="shadow-md fixed w-full bg-white z-50">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <a href="#home" class="text-xl font-bold">BioInfoOmics (TBD) </a>
+
+    <!-- Desktop nav -->
+        <nav class="hidden md:flex space-x-6 items-center">
+
+          <!-- Home -->
+          <a href="index.html#home" class="hover:text-blue-600">Home</a>
+
+          <!-- Services dropdown -->
+          <div class="relative">
+            <button id="services-toggle" class="hover:text-blue-600 focus:outline-none">
+              Services
+            </button>
+            <div id="services-menu" class="hidden absolute left-0 mt-2 w-56 bg-white border rounded shadow-lg z-50">
+              <a href="Services.html#service-qa"       class="block px-4 py-2 hover:bg-gray-100">Quality Assessment & Free Consultation</a>
+              <a href="Services.html#service-data"     class="block px-4 py-2 hover:bg-gray-100">Data Analysis</a>
+              <a href="Services.html#service-consult"  class="block px-4 py-2 hover:bg-gray-100">Project Consulting</a>
+              <a href="Services.html#service-biolearn" class="block px-4 py-2 hover:bg-gray-100">Learning Bioinformatics</a>
+              <a href="Services.html#service-ai"       class="block px-4 py-2 hover:bg-gray-100">Learning AI</a>
+              <a href="Services.html#service-update"   class="block px-4 py-2 hover:bg-gray-100">Staying Up to Date</a>
+            </div>
+          </div>
+
+          <!-- References -->
+          <a href="References.html#references" class="hover:text-blue-600">References</a>
+
+          <!-- About Us -->
+          <a href="AboutUs.html#about-us" class="hover:text-blue-600">About Us</a>
+
+          <!-- Blog -->
+          <a href="Blog.html#blog-intro" class="hover:text-blue-600">Blog</a>
+
+          <!-- FAQ dropdown -->
+          <div class="relative">
+            <button id="faq-toggle" class="hover:text-blue-600 focus:outline-none">
+              FAQ
+            </button>
+            <div id="faq-menu" class="hidden absolute left-0 mt-2 w-48 bg-white border rounded shadow-lg z-50">
+              <a href="FAQ.html#pricing"          class="block px-4 py-2 hover:bg-gray-100">Pricing & Rates</a>
+              <a href="FAQ.html#common-questions" class="block px-4 py-2 hover:bg-gray-100">Common Questions</a>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <a href="Contact.html#contact" class="hover:text-blue-600">Contact</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button class="md:hidden focus:outline-none" id="mobile-menu-btn">
+          <!-- your hamburger icon here -->
+          ☰
+        </button>
+      </div>
+
+      <!-- (Optional) Mobile menu panel -->
+      <div id="mobile-menu" class="hidden md:hidden">
+        <a href="index.html#home" class="block px-4 py-2">Home</a>
+        <a href="Services.html#services" class="block px-4 py-2">Services</a>
+        <a href="References.html#references" class="block px-4 py-2">References</a>
+        <a href="AboutUs.html#about-us" class="block px-4 py-2">About Us</a>
+        <a href="Blog.html#blog-intro" class="block px-4 py-2">Blog</a>
+        <a href="FAQ.html#pricing" class="block px-4 py-2">FAQ</a>
+        <a href="Contact.html#contact" class="block px-4 py-2">Contact</a>
+      </div>
+
+      <script>
+        // Toggle desktop dropdowns
+        document.getElementById('services-toggle').addEventListener('click', () => {
+          document.getElementById('services-menu').classList.toggle('hidden');
+        });
+        document.getElementById('faq-toggle').addEventListener('click', () => {
+          document.getElementById('faq-menu').classList.toggle('hidden');
+        });
+
+        // Toggle mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+          document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+      </script>
+    </header>
+
+  <main class="pt-16">
+
+    <!-- Blog Intro -->
+    <section id="blog-intro" class="bg-gray-50 py-10">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-3xl font-bold mb-4">Our Blog</h1>
+        <p class="text-gray-700 max-w-2xl mx-auto mb-6">
+          Welcome to our blog. Here we share insights, tutorials, updates, and opinion pieces. <br />
+		  We also invite guest writers to contribute!
+        </p>
+        <a href="#guest-writer"
+           class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700">
+          Become a Guest Writer
+        </a>
+      </div>
+    </section>
+
+    <!-- Search & Sort Controls -->
+    <section class="bg-white py-6">
+      <div class="container mx-auto px-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <input id="blog-search" type="text"
+               placeholder="Search blog..."
+               class="w-full sm:w-1/3 p-3 border rounded"/>
+        <div class="flex gap-4">
+          <select id="blog-sort-field" class="p-3 border rounded">
+            <option value="date">Date</option>
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+          </select>
+          <select id="blog-sort-order" class="p-3 border rounded">
+            <option value="desc">Descending</option>
+            <option value="asc">Ascending</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+	<!-- Blog Entries -->
+	<section id="blog-entries" class="bg-white py-10">
+	  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+		<!-- Entry 1 -->
+		<div class="blog-card border rounded-2xl shadow-lg p-6 flex flex-col"
+			 data-title="Placeholder Title 1"
+			 data-author="Author One"
+			 data-date="2025-01-01">
+		  <h3 class="text-xl font-semibold mb-2">Placeholder Title 1</h3>
+		  <p class="text-gray-600 mb-1">By Author One — Jan 1, 2025</p>
+		  <p class="text-gray-700 mb-4 flex-1">
+			[Placeholder: This is a short abstract of the first blog article...]
+		  </p>
+		  <a href="#" class="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+			Read More
+		  </a>
+		</div>
+		<!-- Entry 2 -->
+		<div class="blog-card border rounded-2xl shadow-lg p-6 flex flex-col"
+			 data-title="Placeholder Title 2"
+			 data-author="Author Two"
+			 data-date="2025-02-15">
+		  <h3 class="text-xl font-semibold mb-2">Placeholder Title 2</h3>
+		  <p class="text-gray-600 mb-1">By Author Two — Feb 15, 2025</p>
+		  <p class="text-gray-700 mb-4 flex-1">
+			[Placeholder: This is a short abstract of the second blog article...]
+		  </p>
+		  <a href="#" class="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+			Read More
+		  </a>
+		</div>
+		<!-- Entry 3 -->
+		<div class="blog-card border rounded-2xl shadow-lg p-6 flex flex-col"
+			 data-title="Placeholder Title 3"
+			 data-author="Author Three"
+			 data-date="2025-03-30">
+		  <h3 class="text-xl font-semibold mb-2">Placeholder Title 3</h3>
+		  <p class="text-gray-600 mb-1">By Author Three — Mar 30, 2025</p>
+		  <p class="text-gray-700 mb-4 flex-1">
+			[Placeholder: This is a short abstract of the third blog article...]
+		  </p>
+		  <a href="#" class="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+			Read More
+		  </a>
+		</div>
+	  </div>
+	</section>
+
+
+    <!-- Guest Writer Section -->
+    <section id="guest-writer" class="bg-gray-50 py-10">
+      <div class="container mx-auto px-4 max-w-2xl">
+        <h2 class="text-2xl font-bold mb-4 text-center">Guest Writer Submission</h2>
+        <p class="text-gray-700 mb-6 text-center">
+          To contribute as a guest writer, please prepare:
+        </p>
+        <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+          <li>Your full name</li>
+          <li>A copy of your CV or a link to your LinkedIn profile</li>
+          <li>Your affiliation (if applicable)</li>
+          <li>The proposed article title</li>
+          <li>An abstract of your article</li>
+        </ul>
+        <p class="text-gray-700 text-center">
+          Send your materials to
+          <a href="mailto:guest@biointel.example.com" class="text-blue-600 hover:underline">
+            guest@biointel.example.com
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+  <footer class="py-6 bg-white border-t text-center">
+    <p>
+      &copy; 2025 Jaehyun Lee. All rights reserved.
+      <a href="Impressum.html" class="ml-4 hover:underline">Impressum</a>
+      <span class="mx-2">|</span>
+      <a href="Contact.html" class="hover:underline">Contact</a>
+      <span class="mx-2">|</span>
+      <a href="FAQ.html" class="hover:underline">FAQ</a>
+    </p>
+  </footer>
+
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    document.getElementById('nav-toggle').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Dropdown toggles
+    const serviceToggle = document.getElementById('service-toggle'),
+          serviceMenu   = document.getElementById('service-menu'),
+          faqToggle     = document.getElementById('faq-toggle'),
+          faqMenu       = document.getElementById('faq-menu');
+
+    serviceToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      serviceMenu.classList.toggle('hidden');
+      faqMenu.classList.add('hidden');
+    });
+    faqToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      faqMenu.classList.toggle('hidden');
+      serviceMenu.classList.add('hidden');
+    });
+    document.addEventListener('click', () => {
+      serviceMenu.classList.add('hidden');
+      faqMenu.classList.add('hidden');
+    });
+
+    // Blog search & sort
+    const entriesContainer = document.getElementById('blog-entries');
+    let blogCards = Array.from(entriesContainer.querySelectorAll('.blog-card'))
+      .map(card => ({
+        element: card,
+        title: card.dataset.title.toLowerCase(),
+        author: card.dataset.author.toLowerCase(),
+        date: new Date(card.dataset.date)
+      }));
+
+    const searchInput = document.getElementById('blog-search');
+    const sortField   = document.getElementById('blog-sort-field');
+    const sortOrder   = document.getElementById('blog-sort-order');
+
+    function renderCards(cards) {
+      entriesContainer.innerHTML = '';
+      cards.forEach(c => entriesContainer.appendChild(c.element));
+    }
+
+    function updateDisplay() {
+      const q = searchInput.value.trim().toLowerCase();
+      let filtered = blogCards.filter(c =>
+        c.title.includes(q) || c.author.includes(q)
+      );
+      const field = sortField.value;
+      const order = sortOrder.value;
+      filtered.sort((a,b) => {
+        let cmp = 0;
+        if (field === 'title')    cmp = a.title.localeCompare(b.title);
+        else if (field === 'author') cmp = a.author.localeCompare(b.author);
+        else if (field === 'date')   cmp = a.date - b.date;
+        return order === 'asc' ? cmp : -cmp;
+      });
+      renderCards(filtered);
+    }
+
+    searchInput.addEventListener('input', updateDisplay);
+    sortField.addEventListener('change', updateDisplay);
+    sortOrder.addEventListener('change', updateDisplay);
+
+    // Initial render
+    updateDisplay();
+  </script>
+</body>
+</html>

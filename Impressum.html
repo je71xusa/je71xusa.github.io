@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impressum | Jaehyun Lee</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Header / Navigation -->
+  <header class="shadow-md fixed w-full bg-white z-50">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <a href="#home" class="text-xl font-bold">BioInfoOmics (TBD) </a>
+
+    <!-- Desktop nav -->
+        <nav class="hidden md:flex space-x-6 items-center">
+
+          <!-- Home -->
+          <a href="index.html#home" class="hover:text-blue-600">Home</a>
+
+          <!-- Services dropdown -->
+          <div class="relative">
+            <button id="services-toggle" class="hover:text-blue-600 focus:outline-none">
+              Services
+            </button>
+            <div id="services-menu" class="hidden absolute left-0 mt-2 w-56 bg-white border rounded shadow-lg z-50">
+              <a href="Services.html#service-qa"       class="block px-4 py-2 hover:bg-gray-100">Quality Assessment & Free Consultation</a>
+              <a href="Services.html#service-data"     class="block px-4 py-2 hover:bg-gray-100">Data Analysis</a>
+              <a href="Services.html#service-consult"  class="block px-4 py-2 hover:bg-gray-100">Project Consulting</a>
+              <a href="Services.html#service-biolearn" class="block px-4 py-2 hover:bg-gray-100">Learning Bioinformatics</a>
+              <a href="Services.html#service-ai"       class="block px-4 py-2 hover:bg-gray-100">Learning AI</a>
+              <a href="Services.html#service-update"   class="block px-4 py-2 hover:bg-gray-100">Staying Up to Date</a>
+            </div>
+          </div>
+
+          <!-- References -->
+          <a href="References.html#references" class="hover:text-blue-600">References</a>
+
+          <!-- About Us -->
+          <a href="AboutUs.html#about-us" class="hover:text-blue-600">About Us</a>
+
+          <!-- Blog -->
+          <a href="Blog.html#blog-intro" class="hover:text-blue-600">Blog</a>
+
+          <!-- FAQ dropdown -->
+          <div class="relative">
+            <button id="faq-toggle" class="hover:text-blue-600 focus:outline-none">
+              FAQ
+            </button>
+            <div id="faq-menu" class="hidden absolute left-0 mt-2 w-48 bg-white border rounded shadow-lg z-50">
+              <a href="FAQ.html#pricing"          class="block px-4 py-2 hover:bg-gray-100">Pricing & Rates</a>
+              <a href="FAQ.html#common-questions" class="block px-4 py-2 hover:bg-gray-100">Common Questions</a>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <a href="Contact.html#contact" class="hover:text-blue-600">Contact</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button class="md:hidden focus:outline-none" id="mobile-menu-btn">
+          <!-- your hamburger icon here -->
+          ☰
+        </button>
+      </div>
+
+      <!-- (Optional) Mobile menu panel -->
+      <div id="mobile-menu" class="hidden md:hidden">
+        <a href="index.html#home" class="block px-4 py-2">Home</a>
+        <a href="Services.html#services" class="block px-4 py-2">Services</a>
+        <a href="References.html#references" class="block px-4 py-2">References</a>
+        <a href="AboutUs.html#about-us" class="block px-4 py-2">About Us</a>
+        <a href="Blog.html#blog-intro" class="block px-4 py-2">Blog</a>
+        <a href="FAQ.html#pricing" class="block px-4 py-2">FAQ</a>
+        <a href="Contact.html#contact" class="block px-4 py-2">Contact</a>
+      </div>
+
+      <script>
+        // Toggle desktop dropdowns
+        document.getElementById('services-toggle').addEventListener('click', () => {
+          document.getElementById('services-menu').classList.toggle('hidden');
+        });
+        document.getElementById('faq-toggle').addEventListener('click', () => {
+          document.getElementById('faq-menu').classList.toggle('hidden');
+        });
+
+        // Toggle mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+          document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+      </script>
+    </header>
+
+<main class="pt-16 px-4 max-w-3xl mx-auto space-y-12">
+
+    <!-- Deutsche Version -->
+    <section id="impressum">
+      <h1 class="text-3xl font-bold mt-8 mb-4">Impressum</h1>
+      <p class="mb-2"><strong>Angaben gemäß § 5 TMG:</strong></p>
+      <p class="mb-6">
+        Dr. Jaehyun Lee<br/>
+        Steinhövelstraße 9<br/>
+        89075 Ulm, Deutschland
+      </p>
+
+      <p class="mb-2"><strong>Kontakt:</strong></p>
+      <p class="mb-6">
+        Telefon: +49 176 31103187<br/>
+        E-Mail: <a href="mailto:jaehyun.lee.lee@proton.me" class="text-blue-600 hover:underline">jaehyun.lee.lee[at]proton.me</a>
+      </p>
+
+      <p class="mb-6"><strong>Umsatzsteuer-ID:</strong> DE 123 456 789</p>
+
+      <p class="mb-6"><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br/>
+        Dr. Jaehyun Lee (Anschrift wie oben)
+      </p>
+    </section>
+
+    <!-- English Version -->
+    <section id="legal-notice">
+      <h1 class="text-3xl font-bold mt-8 mb-4">Legal Notice</h1>
+      <p class="mb-2"><strong>Information in accordance with § 5 German Teleservices Act (TMG):</strong></p>
+      <p class="mb-6">
+        Dr. Jaehyun Lee<br/>
+        Steinhövelstraße 9<br/>
+        89075 Ulm, Germany
+      </p>
+
+      <p class="mb-2"><strong>Contact:</strong></p>
+      <p class="mb-6">
+        Phone: +49 176 31103187<br/>
+        E-Mail: <a href="mailto:jaehyun.lee.lee@proton.me" class="text-blue-600 hover:underline">jaehyun.lee.lee[at]proton.me</a>
+      </p>
+
+      <p class="mb-6"><strong>VAT Identification Number:</strong> DE 123 456 789</p>
+
+      <p class="mb-6"><strong>Person responsible for content under § 55 (2) German Interstate Broadcasting Treaty (RStV):</strong><br/>
+        Dr. Jaehyun Lee (address as above)
+      </p>
+    </section>
+
+  </main>
+
+
+    <!-- Footer -->
+  <footer class="py-6 bg-white border-t text-center">
+    <p>
+      &copy; 2025 Jaehyun Lee. All rights reserved.
+      <a href="Impressum.html" class="ml-4 hover:underline">Impressum</a>
+      <span class="mx-2">|</span>
+      <a href="Contact.html" class="hover:underline">Contact</a>
+      <span class="mx-2">|</span>
+      <a href="FAQ.html" class="hover:underline">FAQ</a>
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    document.getElementById('nav-toggle').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Dropdown toggles
+    const serviceToggle = document.getElementById('service-toggle');
+    const serviceMenu   = document.getElementById('service-menu');
+    const faqToggle     = document.getElementById('faq-toggle');
+    const faqMenu       = document.getElementById('faq-menu');
+
+
+    serviceToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      serviceMenu.classList.toggle('hidden');
+      faqMenu.classList.add('hidden');
+    });
+
+    faqToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      faqMenu.classList.toggle('hidden');
+
+      serviceMenu.classList.add('hidden');
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', () => {
+      serviceMenu.classList.add('hidden');
+      faqMenu.classList.add('hidden');
+    });
+	  // Dynamic Contact‐Value field
+	  const contactMethod = document.getElementById('contact-method');
+	  const contactRow    = document.getElementById('contact-value-row');
+	  const contactLabel  = document.getElementById('contact-value-label');
+	  const contactInput  = document.getElementById('contact-value');
+
+	  contactMethod.addEventListener('change', () => {
+		const method = contactMethod.value;
+		if (method === 'Email') {
+		  contactLabel.textContent = 'E-Mail Address';
+		  contactInput.type        = 'email';
+		  contactInput.placeholder = 'you@example.com';
+		  contactInput.required    = true;
+		  contactRow.classList.remove('hidden');
+		} else if (method === 'Phone') {
+		  contactLabel.textContent = 'Phone Number';
+
+		  contactInput.type        = 'tel';
+		  contactInput.placeholder = '+49 123 4567890';
+		  contactInput.required    = true;
+		  contactRow.classList.remove('hidden');
+		} else {
+		  contactRow.classList.add('hidden');
+		  contactInput.required = false;
+		}
+	  });
+</script>
+</body>
+</html>
+

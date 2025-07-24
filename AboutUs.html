@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BioIntel – About Us | Jaehyun Lee, Freelance Bioinformatician">
+  <title>BioIntel – About Us</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Header / Navigation -->
+  <header class="shadow-md fixed w-full bg-white z-50">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <a href="#home" class="text-xl font-bold">BioInfoOmics (TBD) </a>
+
+    <!-- Desktop nav -->
+        <nav class="hidden md:flex space-x-6 items-center">
+
+          <!-- Home -->
+          <a href="index.html#home" class="hover:text-blue-600">Home</a>
+
+          <!-- Services dropdown -->
+          <div class="relative">
+            <button id="services-toggle" class="hover:text-blue-600 focus:outline-none">
+              Services
+            </button>
+            <div id="services-menu" class="hidden absolute left-0 mt-2 w-56 bg-white border rounded shadow-lg z-50">
+              <a href="Services.html#service-qa"       class="block px-4 py-2 hover:bg-gray-100">Quality Assessment & Free Consultation</a>
+              <a href="Services.html#service-data"     class="block px-4 py-2 hover:bg-gray-100">Data Analysis</a>
+              <a href="Services.html#service-consult"  class="block px-4 py-2 hover:bg-gray-100">Project Consulting</a>
+              <a href="Services.html#service-biolearn" class="block px-4 py-2 hover:bg-gray-100">Learning Bioinformatics</a>
+              <a href="Services.html#service-ai"       class="block px-4 py-2 hover:bg-gray-100">Learning AI</a>
+              <a href="Services.html#service-update"   class="block px-4 py-2 hover:bg-gray-100">Staying Up to Date</a>
+            </div>
+          </div>
+
+          <!-- References -->
+          <a href="References.html#references" class="hover:text-blue-600">References</a>
+
+          <!-- About Us -->
+          <a href="AboutUs.html#about-us" class="hover:text-blue-600">About Us</a>
+
+          <!-- Blog -->
+          <a href="Blog.html#blog-intro" class="hover:text-blue-600">Blog</a>
+
+          <!-- FAQ dropdown -->
+          <div class="relative">
+            <button id="faq-toggle" class="hover:text-blue-600 focus:outline-none">
+              FAQ
+            </button>
+            <div id="faq-menu" class="hidden absolute left-0 mt-2 w-48 bg-white border rounded shadow-lg z-50">
+              <a href="FAQ.html#pricing"          class="block px-4 py-2 hover:bg-gray-100">Pricing & Rates</a>
+              <a href="FAQ.html#common-questions" class="block px-4 py-2 hover:bg-gray-100">Common Questions</a>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <a href="Contact.html#contact" class="hover:text-blue-600">Contact</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button class="md:hidden focus:outline-none" id="mobile-menu-btn">
+          <!-- your hamburger icon here -->
+          ☰
+        </button>
+      </div>
+
+      <!-- (Optional) Mobile menu panel -->
+      <div id="mobile-menu" class="hidden md:hidden">
+        <a href="index.html#home" class="block px-4 py-2">Home</a>
+        <a href="Services.html#services" class="block px-4 py-2">Services</a>
+        <a href="References.html#references" class="block px-4 py-2">References</a>
+        <a href="AboutUs.html#about-us" class="block px-4 py-2">About Us</a>
+        <a href="Blog.html#blog-intro" class="block px-4 py-2">Blog</a>
+        <a href="FAQ.html#pricing" class="block px-4 py-2">FAQ</a>
+        <a href="Contact.html#contact" class="block px-4 py-2">Contact</a>
+      </div>
+
+      <script>
+        // Toggle desktop dropdowns
+        document.getElementById('services-toggle').addEventListener('click', () => {
+          document.getElementById('services-menu').classList.toggle('hidden');
+        });
+        document.getElementById('faq-toggle').addEventListener('click', () => {
+          document.getElementById('faq-menu').classList.toggle('hidden');
+        });
+
+        // Toggle mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+          document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+      </script>
+    </header>
+
+  <main class="pt-16">
+
+     <!-- Intro -->
+      <section id="about-us" class="bg-gray-50 py-10">
+        <div class="container mx-auto px-4">
+          <h1 class="text-3xl font-bold mb-8 text-center">
+            Our Mission & Vision
+          </h1>
+          <div class="text-gray-700 max-w-2xl mx-auto space-y-6 text-justify">
+            <p>
+              <strong>Data Analysis You Can Depend On.</strong>
+            </p>
+            <p>
+              We believe that the promise of bioinformatics lies not in flashy algorithms or voluminous reports, but in the depth and integrity of every analysis. You can trust us to go beyond black‑box workflows: we begin by listening closely to your scientific questions, understanding the nuances of each modality and selecting or tailoring methods that are truly fit for purpose—including cutting‑edge AI approaches that enhance, but never replace, rigorous study design.
+            </p>
+            <p>
+              In today’s rapidly evolving field, it’s all too easy for novel tools to outshine sound experimental design or for precious datasets to be run through off‑the‑shelf pipelines that ignore critical biological context. We’ve seen spectacular techniques stumble when data quality is overlooked, when analysis is applied too shallowly, or when unfit methods are applied to the data. That’s why we rigorously assess every step—from raw data QC to statistical modeling—maintaining transparent documentation and reproducible workflows so you can follow our reasoning at every turn.
+            </p>
+            <p>
+              Our goal is translational: to transform complex high‑dimensional data into clear, actionable insights that drive discovery, inform decision‑making, and ultimately impact patient care or fundamental biology. Whether you’re exploring gene expression signatures, discovering novel biomarkers, integrating multi‑omics layers, or leveraging AI‑driven pattern recognition, we commit to precision, clarity, and reliability.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-lg">
+        <h2 class="text-3xl font-bold text-center mb-8">Get In Touch</h2>
+        <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="given-name" class="block mb-1 font-semibold">Given Name</label>
+              <input type="text" id="given-name" name="givenName" required
+                     class="w-full p-3 border rounded" placeholder="Your given name">
+            </div>
+            <div>
+              <label for="family-name" class="block mb-1 font-semibold">Family Name</label>
+              <input type="text" id="family-name" name="familyName" required
+                     class="w-full p-3 border rounded" placeholder="Your family name">
+            </div>
+          </div>
+          <div>
+          <label for="country" class="block mb-1 font-semibold">Country of Residence</label>
+          <input type="text" id="country" name="country" required
+                 class="w-full p-3 border rounded" placeholder="e.g. Germany" />
+        </div>
+          <div>
+            <label for="contact-method" class="block mb-1 font-semibold">How should we contact you?</label>
+            <select id="contact-method" name="contactMethod" required
+                    class="w-full p-3 border rounded">
+              <option value="" disabled selected>Select one</option>
+              <option value="Email">E-Mail</option>
+              <option value="Phone">Phone</option>
+            </select>
+          </div>
+          <div id="contact-value-row" class="hidden">
+            <label for="contact-value" id="contact-value-label" class="block mb-1 font-semibold">E-Mail / Phone</label>
+            <input type="text" id="contact-value" name="contactValue"
+                   class="w-full p-3 border rounded" placeholder="">
+          </div>
+          <div>
+            <label for="request-type" class="block mb-1 font-semibold">What is your request?</label>
+            <select id="request-type" name="requestType" required
+                    class="w-full p-3 border rounded">
+              <option value="" disabled selected>Select one</option>
+              <option>Quality Assessment & Free Consultation</option>
+              <option>Data Analysis</option>
+              <option>Project Consulting</option>
+              <option>Learning Bioinformatics</option>
+              <option>Learning AI</option>
+              <option>Staying Up to Date</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="block mb-1 font-semibold">Message</label>
+            <textarea id="message" name="message" rows="5" required
+                      class="w-full p-3 border rounded"
+                      placeholder="Your detailed request or question"></textarea>
+          </div>
+          <button type="submit"
+                  class="w-full py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+  <footer class="py-6 bg-white border-t text-center">
+    <p>
+      &copy; 2025 Jaehyun Lee. All rights reserved.
+      <a href="Impressum.html" class="ml-4 hover:underline">Impressum</a>
+      <span class="mx-2">|</span>
+      <a href="Contact.html" class="hover:underline">Contact</a>
+      <span class="mx-2">|</span>
+      <a href="FAQ.html" class="hover:underline">FAQ</a>
+    </p>
+  </footer>
+
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    document.getElementById('nav-toggle').addEventListener('click', () =>
+      document.getElementById('mobile-menu').classList.toggle('hidden')
+    );
+
+    // Dropdown toggles
+    const serviceToggle = document.getElementById('service-toggle'),
+          serviceMenu   = document.getElementById('service-menu'),
+          faqToggle     = document.getElementById('faq-toggle'),
+          faqMenu       = document.getElementById('faq-menu');
+
+    serviceToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      serviceMenu.classList.toggle('hidden');
+      faqMenu.classList.add('hidden');
+    });
+    faqToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      faqMenu.classList.toggle('hidden');
+      serviceMenu.classList.add('hidden');
+    });
+    document.addEventListener('click', () => {
+      serviceMenu.classList.add('hidden');
+      faqMenu.classList.add('hidden');
+    });
+
+    // Dynamic Contact-Value field
+    const contactMethod = document.getElementById('contact-method'),
+          contactRow    = document.getElementById('contact-value-row'),
+          contactLabel  = document.getElementById('contact-value-label'),
+          contactInput  = document.getElementById('contact-value');
+
+    contactMethod.addEventListener('change', () => {
+      const method = contactMethod.value;
+      if (method === 'Email') {
+        contactLabel.textContent = 'E-Mail Address';
+        contactInput.type        = 'email';
+        contactInput.placeholder = 'you@example.com';
+        contactRow.classList.remove('hidden');
+      } else if (method === 'Phone') {
+        contactLabel.textContent = 'Phone Number';
+        contactInput.type        = 'tel';
+        contactInput.placeholder = '+49 123 4567890';
+        contactRow.classList.remove('hidden');
+      } else {
+        contactRow.classList.add('hidden');
+      }
+    });
+
+    // Pre-select expert & scroll
+    document.querySelectorAll('.contact-expert').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const expert = btn.getAttribute('data-expert');
+        document.getElementById('specific-expert').value = expert;
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

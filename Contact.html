@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BioIntel – Contact | Jaehyun Lee, Freelance Bioinformatician">
+  <title>BioIntel – Contact</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Header / Navigation -->
+  <header class="shadow-md fixed w-full bg-white z-50">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <a href="#home" class="text-xl font-bold">BioInfoOmics (TBD) </a>
+
+    <!-- Desktop nav -->
+        <nav class="hidden md:flex space-x-6 items-center">
+
+          <!-- Home -->
+          <a href="index.html#home" class="hover:text-blue-600">Home</a>
+
+          <!-- Services dropdown -->
+          <div class="relative">
+            <button id="services-toggle" class="hover:text-blue-600 focus:outline-none">
+              Services
+            </button>
+            <div id="services-menu" class="hidden absolute left-0 mt-2 w-56 bg-white border rounded shadow-lg z-50">
+              <a href="Services.html#service-qa"       class="block px-4 py-2 hover:bg-gray-100">Quality Assessment & Free Consultation</a>
+              <a href="Services.html#service-data"     class="block px-4 py-2 hover:bg-gray-100">Data Analysis</a>
+              <a href="Services.html#service-consult"  class="block px-4 py-2 hover:bg-gray-100">Project Consulting</a>
+              <a href="Services.html#service-biolearn" class="block px-4 py-2 hover:bg-gray-100">Learning Bioinformatics</a>
+              <a href="Services.html#service-ai"       class="block px-4 py-2 hover:bg-gray-100">Learning AI</a>
+              <a href="Services.html#service-update"   class="block px-4 py-2 hover:bg-gray-100">Staying Up to Date</a>
+            </div>
+          </div>
+
+          <!-- References -->
+          <a href="References.html#references" class="hover:text-blue-600">References</a>
+
+          <!-- About Us -->
+          <a href="AboutUs.html#about-us" class="hover:text-blue-600">About Us</a>
+
+          <!-- Blog -->
+          <a href="Blog.html#blog-intro" class="hover:text-blue-600">Blog</a>
+
+          <!-- FAQ dropdown -->
+          <div class="relative">
+            <button id="faq-toggle" class="hover:text-blue-600 focus:outline-none">
+              FAQ
+            </button>
+            <div id="faq-menu" class="hidden absolute left-0 mt-2 w-48 bg-white border rounded shadow-lg z-50">
+              <a href="FAQ.html#pricing"          class="block px-4 py-2 hover:bg-gray-100">Pricing & Rates</a>
+              <a href="FAQ.html#common-questions" class="block px-4 py-2 hover:bg-gray-100">Common Questions</a>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <a href="Contact.html#contact" class="hover:text-blue-600">Contact</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button class="md:hidden focus:outline-none" id="mobile-menu-btn">
+          <!-- your hamburger icon here -->
+          ☰
+        </button>
+      </div>
+
+      <!-- (Optional) Mobile menu panel -->
+      <div id="mobile-menu" class="hidden md:hidden">
+        <a href="index.html#home" class="block px-4 py-2">Home</a>
+        <a href="Services.html#services" class="block px-4 py-2">Services</a>
+        <a href="References.html#references" class="block px-4 py-2">References</a>
+        <a href="AboutUs.html#about-us" class="block px-4 py-2">About Us</a>
+        <a href="Blog.html#blog-intro" class="block px-4 py-2">Blog</a>
+        <a href="FAQ.html#pricing" class="block px-4 py-2">FAQ</a>
+        <a href="Contact.html#contact" class="block px-4 py-2">Contact</a>
+      </div>
+
+      <script>
+        // Toggle desktop dropdowns
+        document.getElementById('services-toggle').addEventListener('click', () => {
+          document.getElementById('services-menu').classList.toggle('hidden');
+        });
+        document.getElementById('faq-toggle').addEventListener('click', () => {
+          document.getElementById('faq-menu').classList.toggle('hidden');
+        });
+
+        // Toggle mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+          document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+      </script>
+    </header>
+
+  <main class="pt-16">
+
+    <section id="contact" class="py-20">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row gap-12">
+        <!-- Contact Form -->
+        <div class="md:w-1/2 bg-gray-50 p-8 rounded-lg shadow-lg">
+          <h2 class="text-2xl font-bold mb-6">Get In Touch</h2>
+          <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="given-name" class="block mb-1 font-semibold">Given Name</label>
+                <input type="text" id="given-name" name="givenName" required
+                       class="w-full p-3 border rounded" placeholder="Your given name">
+              </div>
+              <div>
+                <label for="family-name" class="block mb-1 font-semibold">Family Name</label>
+                <input type="text" id="family-name" name="familyName" required
+                       class="w-full p-3 border rounded" placeholder="Your family name">
+              </div>
+            </div>
+
+            <div>
+              <label for="country" class="block mb-1 font-semibold">Country of Residence</label>
+              <input list="country-list" id="country" name="country" required
+                     class="w-full p-3 border rounded" placeholder="Start typing…">
+              <datalist id="country-list">
+                <option value="Germany">
+                <option value="France">
+                <option value="United States">
+                <option value="United Kingdom">
+                <option value="Canada">
+                <option value="China">
+                <option value="India">
+                <option value="Australia">
+                <option value="Brazil">
+                <option value="Japan">
+              </datalist>
+            </div>
+
+            <div>
+              <label for="contact-method" class="block mb-1 font-semibold">How should we contact you?</label>
+              <select id="contact-method" name="contactMethod" required
+                      class="w-full p-3 border rounded">
+                <option value="" disabled selected>Select one</option>
+                <option value="Email">E-Mail</option>
+                <option value="Phone">Phone</option>
+              </select>
+            </div>
+
+            <div id="contact-value-row" class="hidden">
+              <label for="contact-value" id="contact-value-label" class="block mb-1 font-semibold">
+                E-Mail / Phone
+              </label>
+              <input type="text" id="contact-value" name="contactValue"
+                     class="w-full p-3 border rounded" placeholder="">
+            </div>
+
+            <div>
+              <label for="request-type" class="block mb-1 font-semibold">What is your request?</label>
+              <select id="request-type" name="requestType" required
+                      class="w-full p-3 border rounded">
+                <option value="" disabled selected>Select one</option>
+                <option>Quality Assessment & Free Consultation</option>
+                <option>Data Analysis</option>
+                <option>Project Consulting</option>
+                <option>Learning Bioinformatics</option>
+                <option>Learning AI</option>
+                <option>Staying Up to Date</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block mb-1 font-semibold">Message</label>
+              <textarea id="message" name="message" rows="5" required
+                        class="w-full p-3 border rounded"
+                        placeholder="Your detailed request or question"></textarea>
+            </div>
+
+            <button type="submit"
+                    class="w-full py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700">
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="md:w-1/2 flex flex-col justify-center space-y-6">
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Email</h3>
+            <p class="text-gray-700">info[at]biointel.example.com</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Phone</h3>
+            <p class="text-gray-700">+49 123 456 7890</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+  <footer class="py-6 bg-white border-t text-center">
+    <p>
+      &copy; 2025 Jaehyun Lee. All rights reserved.
+      <a href="Impressum.html" class="ml-4 hover:underline">Impressum</a>
+      <span class="mx-2">|</span>
+      <a href="Contact.html" class="hover:underline">Contact</a>
+      <span class="mx-2">|</span>
+      <a href="FAQ.html" class="hover:underline">FAQ</a>
+    </p>
+  </footer>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    document.getElementById('nav-toggle').addEventListener('click', () =>
+      document.getElementById('mobile-menu').classList.toggle('hidden')
+    );
+
+    // Header dropdown toggles
+    const serviceToggle = document.getElementById('service-toggle'),
+          serviceMenu   = document.getElementById('service-menu'),
+          faqToggle     = document.getElementById('faq-toggle'),
+          faqMenu       = document.getElementById('faq-menu');
+
+    serviceToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      serviceMenu.classList.toggle('hidden');
+      faqMenu.classList.add('hidden');
+    });
+    faqToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      faqMenu.classList.toggle('hidden');
+      serviceMenu.classList.add('hidden');
+    });
+    document.addEventListener('click', () => {
+      serviceMenu.classList.add('hidden');
+      faqMenu.classList.add('hidden');
+    });
+
+    // Dynamic Contact-Value field
+    const contactMethod = document.getElementById('contact-method'),
+          contactRow    = document.getElementById('contact-value-row'),
+          contactLabel  = document.getElementById('contact-value-label'),
+          contactInput  = document.getElementById('contact-value');
+
+    contactMethod.addEventListener('change', () => {
+      const method = contactMethod.value;
+      if (method === 'Email') {
+        contactLabel.textContent = 'E-Mail Address';
+        contactInput.type        = 'email';
+        contactInput.placeholder = 'you@example.com';
+        contactRow.classList.remove('hidden');
+      } else if (method === 'Phone') {
+        contactLabel.textContent = 'Phone Number';
+        contactInput.type        = 'tel';
+        contactInput.placeholder = '+49 123 4567890';
+        contactRow.classList.remove('hidden');
+      } else {
+        contactRow.classList.add('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>
