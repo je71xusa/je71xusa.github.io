@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="BioIntel – About Us | Jaehyun Lee, Freelance Bioinformatician">
-  <title>BioIntel – About Us</title>
+  <title>OmicFuse | About Us</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -13,7 +13,7 @@
   <!-- Header / Navigation -->
   <header class="shadow-md fixed w-full bg-white z-50">
     <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="#home" class="text-xl font-bold">BioInfoOmics (TBD) </a>
+      <a href="#home" class="text-xl font-bold">OmicFuse </a>
 
     <!-- Desktop nav -->
         <nav class="hidden md:flex space-x-6 items-center">
@@ -124,7 +124,12 @@
     <section id="contact" class="py-20 bg-gray-50">
       <div class="container mx-auto px-4 max-w-lg">
         <h2 class="text-3xl font-bold text-center mb-8">Get In Touch</h2>
-        <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
+        <form action="https://formspree.io/f/xqalrkar" method="POST" class="space-y-4" id="contact-form">
+          <!-- Formspree helpers -->
+          <input type="hidden" name="_subject" value="New OmicFuse Inquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="originPage" value="">
+          <input type="hidden" name="_replyto" value="">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label for="given-name" class="block mb-1 font-semibold">Given Name</label>
@@ -152,10 +157,21 @@
             </select>
           </div>
           <div id="contact-value-row" class="hidden">
-            <label for="contact-value" id="contact-value-label" class="block mb-1 font-semibold">E-Mail / Phone</label>
-            <input type="text" id="contact-value" name="contactValue"
-                   class="w-full p-3 border rounded" placeholder="">
-          </div>
+          <label for="contact-value" id="contact-value-label" class="block mb-1 font-semibold">
+            E‑Mail / Phone
+          </label>
+          <input
+            type="text"
+            id="contact-value"
+            name="contactValue"
+            class="w-full p-3 border rounded"
+            placeholder=""
+            aria-describedby="contact-value-help"
+          />
+          <p id="contact-value-help" class="text-sm text-gray-500 mt-1">
+            Please enter your contact.
+          </p>
+        </div>
           <div>
             <label for="request-type" class="block mb-1 font-semibold">What is your request?</label>
             <select id="request-type" name="requestType" required
@@ -199,65 +215,139 @@
   </main>
 
   <!-- Scripts -->
-  <script>
-    // Mobile menu toggle
-    document.getElementById('nav-toggle').addEventListener('click', () =>
-      document.getElementById('mobile-menu').classList.toggle('hidden')
-    );
+<script>
+(function () {
+  // Use the explicit id if present; otherwise fall back to first Formspree form
+  const form = document.getElementById('contact-form') || document.querySelector('form[action*="formspree"]');
+  if (!form) return;
 
-    // Dropdown toggles
-    const serviceToggle = document.getElementById('service-toggle'),
-          serviceMenu   = document.getElementById('service-menu'),
-          faqToggle     = document.getElementById('faq-toggle'),
-          faqMenu       = document.getElementById('faq-menu');
+  // Elements
+  const contactMethod = form.querySelector('#contact-method');
+  const contactRow    = form.querySelector('#contact-value-row'); // picks the first, even if duplicates exist
+  const contactLabel  = form.querySelector('#contact-value-label');
+  const contactInput  = form.querySelector('#contact-value');
+  const requestType   = form.querySelector('#request-type');
 
-    serviceToggle.addEventListener('click', e => {
-      e.stopPropagation();
-      serviceMenu.classList.toggle('hidden');
-      faqMenu.classList.add('hidden');
+  // Hidden helpers (already in your form)
+  const hiddenSubject = form.querySelector('input[name="_subject"]');
+  const hiddenOrigin  = form.querySelector('input[name="originPage"]');
+  const hiddenReplyTo = form.querySelector('input[name="_replyto"]');
+
+  // Status message container
+  const msg = document.createElement('div');
+  msg.setAttribute('role','status');
+  msg.className = 'mt-4 text-sm';
+  form.appendChild(msg);
+
+  // === Dynamic Contact Field ===
+  function updateContactField() {
+    const v = contactMethod.value;
+    if (v === 'Email') {
+      contactLabel.textContent = 'E‑Mail Address';
+      contactInput.type = 'email';
+      contactInput.name = 'email';
+      contactInput.placeholder = 'you@example.com';
+      contactInput.required = true;
+      contactInput.setAttribute('autocomplete','email');
+      contactInput.setAttribute('inputmode','email');
+      contactInput.removeAttribute('pattern');
+      contactRow.classList.remove('hidden');
+    } else if (v === 'Phone') {
+      contactLabel.textContent = 'Phone Number';
+      contactInput.type = 'tel';
+      contactInput.name = 'phone';
+      contactInput.placeholder = '+49 123 4567890';
+      contactInput.required = true;
+      contactInput.setAttribute('autocomplete','tel');
+      contactInput.setAttribute('inputmode','tel');
+      contactInput.setAttribute('pattern','^[+0-9()\\s-]{7,}$');
+      contactRow.classList.remove('hidden');
+    } else {
+      contactInput.required = false;
+      contactInput.name = 'contactValue';
+      contactInput.value = '';
+      contactInput.removeAttribute('autocomplete');
+      contactInput.removeAttribute('inputmode');
+      contactInput.removeAttribute('pattern');
+      contactRow.classList.add('hidden');
+    }
+  }
+  if (contactMethod) {
+    contactMethod.addEventListener('change', updateContactField);
+    updateContactField(); // run once on load
+  }
+
+  // Pre-select request type when clicking "Contact Us Now!" buttons in the page
+  document.querySelectorAll('.contact-now').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const req = btn.getAttribute('data-request');
+      if (requestType && req) requestType.value = req;
     });
-    faqToggle.addEventListener('click', e => {
-      e.stopPropagation();
-      faqMenu.classList.toggle('hidden');
-      serviceMenu.classList.add('hidden');
-    });
-    document.addEventListener('click', () => {
-      serviceMenu.classList.add('hidden');
-      faqMenu.classList.add('hidden');
-    });
+  });
 
-    // Dynamic Contact-Value field
-    const contactMethod = document.getElementById('contact-method'),
-          contactRow    = document.getElementById('contact-value-row'),
-          contactLabel  = document.getElementById('contact-value-label'),
-          contactInput  = document.getElementById('contact-value');
+  // === Formspree AJAX Submit ===
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-    contactMethod.addEventListener('change', () => {
-      const method = contactMethod.value;
-      if (method === 'Email') {
-        contactLabel.textContent = 'E-Mail Address';
-        contactInput.type        = 'email';
-        contactInput.placeholder = 'you@example.com';
-        contactRow.classList.remove('hidden');
-      } else if (method === 'Phone') {
-        contactLabel.textContent = 'Phone Number';
-        contactInput.type        = 'tel';
-        contactInput.placeholder = '+49 123 4567890';
-        contactRow.classList.remove('hidden');
+    // Front-end validity check (also catches phone pattern mismatch)
+    if (!form.checkValidity()) {
+      msg.textContent = 'Please check the highlighted fields.';
+      msg.className = 'mt-4 text-sm text-red-700';
+      // Trigger native messages where supported
+      try { form.reportValidity && form.reportValidity(); } catch {}
+      return;
+    }
+
+    msg.textContent = 'Sending…';
+    msg.className = 'mt-4 text-sm text-gray-600';
+
+    const formData = new FormData(form);
+
+    // Fill helper fields for nicer emails in Formspree dashboard
+    if (hiddenOrigin) hiddenOrigin.value = location.pathname + location.hash;
+    const reqValue = requestType ? requestType.value : null;
+    if (hiddenSubject) hiddenSubject.value = `New OmicFuse Inquiry${reqValue ? ' — ' + reqValue : ''}`;
+
+    // Ensure _replyto is set when the user chose Email
+    if (hiddenReplyTo) {
+      if (contactMethod && contactMethod.value === 'Email') {
+        hiddenReplyTo.value = contactInput.value || '';
       } else {
-        contactRow.classList.add('hidden');
+        hiddenReplyTo.value = '';
       }
-    });
+    }
 
-    // Pre-select expert & scroll
-    document.querySelectorAll('.contact-expert').forEach(btn => {
-      btn.addEventListener('click', e => {
-        e.preventDefault();
-        const expert = btn.getAttribute('data-expert');
-        document.getElementById('specific-expert').value = expert;
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    // Append any updated hidden values to the FormData (in case browser didn't bind them yet)
+    if (hiddenOrigin)  formData.set('originPage', hiddenOrigin.value);
+    if (hiddenSubject) formData.set('_subject', hiddenSubject.value);
+    if (hiddenReplyTo) formData.set('_replyto', hiddenReplyTo.value);
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
       });
-    });
-  </script>
+
+      if (res.ok) {
+        msg.textContent = '✅ Thank you! Your message has been sent.';
+        msg.className = 'mt-4 text-sm text-green-700';
+        form.reset();
+        updateContactField(); // hide dynamic field again after reset
+      } else {
+        const data = await res.json().catch(() => ({}));
+        const detail = (data && data.errors && data.errors[0] && data.errors[0].message) ? ` (${data.errors[0].message})` : '';
+        throw new Error('Submission failed' + detail);
+      }
+    } catch (err) {
+      console.error(err);
+      msg.textContent = '❌ Sorry—there was a problem sending your message. Please try again.';
+      msg.className = 'mt-4 text-sm text-red-700';
+    }
+  });
+})();
+</script>
+
+
 </body>
 </html>
