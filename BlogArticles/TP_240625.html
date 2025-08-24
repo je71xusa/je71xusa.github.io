@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OmicFuse Blog Post | The Role of Bioinformatics in Modern Neuroscience">
+  <title>OmicFuse | Blog Post</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+
+ <!-- Header / Navigation -->
+  <header class="shadow-md fixed w-full bg-white z-50">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <a href="../index.html#home" class="text-xl font-bold">OmicFuse</a>
+      <nav class="hidden md:flex space-x-6 items-center">
+        <a href="../index.html#home" class="hover:text-blue-600">Home</a>
+        <a href="../Services.html#services" class="hover:text-blue-600">Services</a>
+        <a href="../References.html#references" class="hover:text-blue-600">References</a>
+        <a href="../AboutUs.html#about-us" class="hover:text-blue-600">About Us</a>
+        <a href="../Blog.html#blog-intro" class="hover:text-blue-600">Blog</a>
+        <a href="../FAQ.html#pricing" class="hover:text-blue-600">FAQ</a>
+        <a href="../Contact.html#contact" class="hover:text-blue-600">Contact</a>
+      </nav>
+      <button class="md:hidden focus:outline-none" id="mobile-menu-btn">☰</button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden">
+      <a href="../index.html#home" class="block px-4 py-2">Home</a>
+      <a href="../Services.html#services" class="block px-4 py-2">Services</a>
+      <a href="../References.html#references" class="block px-4 py-2">References</a>
+      <a href="../AboutUs.html#about-us" class="block px-4 py-2">About Us</a>
+      <a href="../Blog.html#blog-intro" class="block px-4 py-2">Blog</a>
+      <a href="../FAQ.html#pricing" class="block px-4 py-2">FAQ</a>
+      <a href="../Contact.html#contact" class="block px-4 py-2">Contact</a>
+    </div>
+    <script>
+      document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+      });
+    </script>
+  </header>
+
+  <main class="pt-20 pb-16 container mx-auto px-4 max-w-3xl">
+    <article>
+<h1 style="font-size:1.5em;">
+Dangers of AI – Why It Is Different Than Any Other Technological Reform - by Tae Won Park
+  <small style="font-size:0.6em; font-weight:normal;">
+    — by Tae Won Park
+  </small>
+</h1>
+
+<h2><strong>Introduction</strong></h2>
+<p>AI is framed as the next platform shift—akin to the computer or the internet—yet its speed, scope, and nature make it fundamentally different. It touches language, images, decisions, and infrastructure at once, amplifying benefits and risks in ways prior tools did not. Based on our experience in adopting AI into our workflow and helping many other teams in integrating AI, I want to write my opinion about the upsides and risks of AI.</p>
+
+<h2><strong>The Double‑Edged Sword: Upsides and Downsides Together</strong></h2>
+<p>AI democratizes capability: like Python displaced more “ancient”, harder‑to‑use languages, modern AI lets many perform tasks once limited to experts, dramatically raising output per person. But this also fuels worker‑replacement anxiety and a reconfiguration of roles; major institutions estimate large shares of jobs will be reshaped or exposed to automation pressures [1][2].</p>
+<p>Usability and accessibility a heavy upside: natural‑language interfaces reduce the barrier for non‑technical users offering a human-human like interaction for human-robot interactions. However, in practice it is more akin to a <em>problem replacement</em> instead of a solution to a problem: without training, users (especially the not tech-savy users) fall into classic AI pitfalls like over‑long chats that hallucinate more, attempts to “fix” a model, or accepting confident but incorrect outputs. Research underscores that reliability issues (e.g., hallucinations) are real and require new guardrails and human‑in‑the‑loop methods [3][7].</p>
+<p>Quality assurance is different from past tools. Unlike a tool that exposes its steps and leave the end evaluation to the user, many AI systems present confident answers without showing their working, incentivizing under‑checking. That, combined with fewer junior roles if entry‑level tasks are automated, risks shrinking the pipeline of future experts needed to validate AI's work.</p>
+<p>Some other aspects that I personally am not an expert in but have read/heard from other people. Energy demand from AI data centers is projected to more than double by 2030, straining grids and water resources unless matched with massive efficiency and clean power investments [4]. Social harms—from deepfakes that erode trust and enable fraud, to parasocial AI “companions”—are no longer hypothetical; law‑enforcement and regulators now issue specific alerts on AI‑enabled scams [5].</p>
+
+<h2><strong>Our biggest fear</strong></h2>
+<p>In our experience, the pattern was consistent: people who understood model behavior, prompting, and specialization achieved better results while others struggled or even underperformed themselves without AI. Training, process redesign, and clear guardrails mattered more than the tool choice itself. Without proper training the overall quality only experienced a little increase at the beginning, followed by stagnation or sometimes even decline over time. Moreover, many argue that resistance to new technology is nothing new and that humanity has always managed to adapt. While this is true, caution is still warranted. Each technological revolution has arrived faster than the last, leaving more people unable to keep pace. Even today, countless individuals still fall victim to basic scams, fake videos, and misleading posts that have existed online for decades. If society continues to struggle with such long-standing digital risks, how many more will be left behind by the far more rapid and complex development of AI? At what point does technological change outpace our ability to adapt as a society? We do not yet know the answer, but it is clear that a healthy measure of caution is not only justified—it is essential. </p>
+
+<h2><strong>What Should Be Done</strong></h2>
+<p>Pair access with education (prompt patterns, verification routines, and limits of AI) and keep humans in the loop for material decisions [3][7]. Organizations should publish usage standards, require provenance checks for critical outputs, and monitor model drift. Policymakers should speed up guardrails on transparency, deepfake labeling, safety evaluation, and workforce transition support so benefits are shared while harms are bounded [1][2][5].</p>
+
+<h2><strong>Limitations of This Article</strong></h2>
+<p>This piece is mostly a subjective opinion piece based on subjective experiences.</p>
+
+<h2><strong>Summary</strong></h2>
+<p>AI clearly boosts accessibility and productivity, and it promises meaningful gains in many different areas when used correctly [6]. But unlike prior “enabling” tools, AI's opacity, rapid development, and systemic hurdles mean that unchecked speed can leave many behind. With training, accountability, and timely guardrails, we can enjoy the upside without pretending there is no cost.</p>
+
+<h2><strong>References</strong></h2>
+<ol>
+  <li>1. Kristalina Georgieva, “AI Will Transform the Global Economy. Let's Make Sure It Benefits Humanity,” <em>IMF Blog</em>, 2024. <a href="https://www.imf.org/en/Blogs/Articles/2024/01/14/ai-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity">https://www.imf.org/en/Blogs/Articles/2024/01/14/ai-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity</a></li>
+  <li>2. OECD, <em>Employment Outlook 2024</em>, 2024. <a href="https://www.oecd.org/content/dam/oecd/en/publications/reports/2024/07/oecd-employment-outlook-2024_abc8ad82/ac8b3538-en.pdf">https://www.oecd.org/.../oecd-employment-outlook-2024</a></li>
+  <li>3. S. Farquhar et al., “Detecting hallucinations in large language models using uncertainty estimation,” <em>Nature</em>, 2024. <a href="https://www.nature.com/articles/s41586-024-07421-0">https://www.nature.com/articles/s41586-024-07421-0</a></li>
+  <li>4. International Energy Agency (IEA), “AI is set to drive surging electricity demand from data centres,” 2025. <a href="https://www.iea.org/news/ai-is-set-to-drive-surging-electricity-demand-from-data-centres-while-offering-the-potential-to-transform-how-the-energy-sector-works">https://www.iea.org/news/ai-is-set-to-drive...</a></li>
+  <li>5. Financial Crimes Enforcement Network (FinCEN), “Alert on Fraud Schemes Involving Deepfake Technology,” U.S. Treasury, 2024. <a href="https://www.fincen.gov/sites/default/files/shared/FinCEN-Alert-DeepFakes-Alert508FINAL.pdf">https://www.fincen.gov/.../FinCEN-Alert-DeepFakes</a></li>
+  <li>6. M. Chustecki et al., “Benefits and Risks of AI in Health Care: Narrative Review,” <em>JMIR Medical Informatics</em>, 2024. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11612599/">https://pmc.ncbi.nlm.nih.gov/articles/PMC11612599/</a></li>
+  <li>7. N. Andalibi et al., “From Prompt Engineering to Prompt Science with Humans in the Loop,” <em>ACM Digital Library</em>, 2025. <a href="https://dl.acm.org/doi/10.1145/3709599">https://dl.acm.org/doi/10.1145/3709599</a></li>
+</ol>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-6 bg-white border-t text-center">
+    <p>
+      &copy; 2025 Jaehyun Lee. All rights reserved.
+      <a href="../Impressum.html" class="ml-4 hover:underline">Impressum/Privacy</a>
+      <span class="mx-2">|</span>
+      <a href="../Contact.html" class="hover:underline">Contact</a>
+      <span class="mx-2">|</span>
+      <a href="../FAQ.html" class="hover:underline">FAQ</a>
+    </p>
+  </footer>
+</body>
+</html>
+
