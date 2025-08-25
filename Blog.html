@@ -136,9 +136,9 @@
 	  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
 		<!-- Entry 1 -->
 		<div class="blog-card border rounded-2xl shadow-lg p-6 flex flex-col"
-			 data-title="Placeholder Title 1"
-			 data-author="Author One"
-			 data-date="2025-01-01">
+			 data-title="The Cracks in Today's Academic System"
+			 data-author="Jaehyun Lee"
+			 data-date="2025-05-23">
 		  <h3 class="text-xl font-semibold mb-2">The Cracks in Today's Academic System</h3>
 		  <p class="text-gray-600 mb-1">By Jaehyun Lee — May 23, 2025</p>
 		  <p class="text-gray-700 mb-4 flex-1">
@@ -150,9 +150,9 @@
 		</div>
 		<!-- Entry 2 -->
 		<div class="blog-card border rounded-2xl shadow-lg p-6 flex flex-col"
-			 data-title="Placeholder Title 2"
-			 data-author="Author Two"
-			 data-date="2025-02-15">
+			 data-title="Dangers of AI – Why It Is Different Than Any Other Technological Reform"
+			 data-author="Tae Won Park"
+			 data-date="2025-06-24">
 		  <h3 class="text-xl font-semibold mb-2">Dangers of AI – Why It Is Different Than Any Other Technological Reform</h3>
 		  <p class="text-gray-600 mb-1">By Guest Writer Tae Won Park (Pseudonym) — June 24, 2025</p>
 		  <p class="text-gray-700 mb-4 flex-1">
@@ -164,15 +164,15 @@
 		</div>
 		<!-- Entry 3 -->
 		<div class="blog-card border rounded-2xl shadow-lg p-6 flex flex-col"
-			 data-title="Placeholder Title 3"
-			 data-author="Author Three"
-			 data-date="2025-03-30">
-		  <h3 class="text-xl font-semibold mb-2">Placeholder Title 3</h3>
-		  <p class="text-gray-600 mb-1">By Guest Writer Jenny Kim (Pseudonym) — July 24, 2025</p>
+			 data-title="How to Best Utilize Bioinformatics in Your Research"
+			 data-author="Jaehyun Lee"
+			 data-date="2025-07-23">
+		  <h3 class="text-xl font-semibold mb-2">How to Best Utilize Bioinformatics in Your Research</h3>
+		  <p class="text-gray-600 mb-1">By Jaehyun Lee — July 23, 2025</p>
 		  <p class="text-gray-700 mb-4 flex-1">
-			[Placeholder: This is a short abstract of the third blog article...]
+			Bioinformatics has rapidly evolved from the sequencing of the human genome to today's advanced single-cell, spatial, and multimodal analyses. This article explores how bioinformatics can empower researchers with granular, big data insights that accelerate hypothesis generation and complement wet-lab studies. At the same time, it highlights common misconceptions and limitations—such as the risk of false positives, the importance of data quality, and the need for experimental validation. Ultimately, bioinformatics should be seen as a powerful tool for generating and refining research questions, rather than as a substitute for experimental proof.
 		  </p>
-		  <a href="#" class="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+		  <a href="./BlogArticles/JL_230725.html" class="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
 			Read More
 		  </a>
 		</div>
@@ -218,75 +218,150 @@
   </main>
 
   <!-- Scripts -->
-  <script>
-    // Mobile menu toggle
-    document.getElementById('nav-toggle').addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
+ <script>
+(function () {
+  'use strict';
+
+  // ---------------------------
+  // Header: menus & mobile nav
+  // ---------------------------
+  const mobileBtn  = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
+  }
 
-    // Dropdown toggles
-    const serviceToggle = document.getElementById('service-toggle'),
-          serviceMenu   = document.getElementById('service-menu'),
-          faqToggle     = document.getElementById('faq-toggle'),
-          faqMenu       = document.getElementById('faq-menu');
+  const servicesToggle = document.getElementById('services-toggle');
+  const servicesMenu   = document.getElementById('services-menu');
+  const faqToggle      = document.getElementById('faq-toggle');
+  const faqMenu        = document.getElementById('faq-menu');
 
-    serviceToggle.addEventListener('click', e => {
+  if (servicesToggle && servicesMenu) {
+    servicesToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      serviceMenu.classList.toggle('hidden');
-      faqMenu.classList.add('hidden');
+      servicesMenu.classList.toggle('hidden');
+      if (faqMenu) faqMenu.classList.add('hidden');
     });
-    faqToggle.addEventListener('click', e => {
+  }
+  if (faqToggle && faqMenu) {
+    faqToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       faqMenu.classList.toggle('hidden');
-      serviceMenu.classList.add('hidden');
+      if (servicesMenu) servicesMenu.classList.add('hidden');
     });
-    document.addEventListener('click', () => {
-      serviceMenu.classList.add('hidden');
-      faqMenu.classList.add('hidden');
+  }
+  // close dropdowns on outside click
+  document.addEventListener('click', () => {
+    if (servicesMenu) servicesMenu.classList.add('hidden');
+    if (faqMenu) faqMenu.classList.add('hidden');
+  });
+
+  // ---------------------------
+  // Blog: search + sort
+  // ---------------------------
+  const entriesContainer = document.getElementById('blog-entries');
+  const searchInput      = document.getElementById('blog-search');
+  const sortField        = document.getElementById('blog-sort-field');
+  const sortOrder        = document.getElementById('blog-sort-order');
+
+  if (!entriesContainer) return;
+
+  // Graceful "no results"
+  const NoResults = (() => {
+    const el = document.createElement('div');
+    el.textContent = 'No results match your filters.';
+    el.className   = 'col-span-full text-center text-gray-500 py-8';
+    el.style.display = 'none';
+    // Append at end of container's grid
+    entriesContainer.appendChild(el);
+    return {
+      show() { el.style.display = ''; },
+      hide() { el.style.display = 'none'; }
+    };
+  })();
+
+  function parseDateSafe(s) {
+    // Expecting data-date="YYYY-MM-DD"
+    if (!s) return new Date('1970-01-01T00:00:00Z');
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(s).trim());
+    if (m) {
+      const [, y, mo, d] = m;
+      return new Date(Date.UTC(+y, +mo - 1, +d));
+    }
+    const dflt = new Date(s);
+    return isNaN(dflt) ? new Date('1970-01-01T00:00:00Z') : dflt;
+  }
+
+  // Capture original cards + metadata
+  const originalCards = Array.from(entriesContainer.querySelectorAll('.blog-card'));
+  const blogCards = originalCards.map((card, index) => ({
+    element: card,
+    index, // for stable sort
+    title:  (card.dataset.title  || card.querySelector('h3')?.textContent || '').trim().toLowerCase(),
+    author: (card.dataset.author || '').trim().toLowerCase(),
+    date:   parseDateSafe(card.dataset.date)
+  }));
+
+  function render(cards) {
+    const frag = document.createDocumentFragment();
+    cards.forEach(c => frag.appendChild(c.element));
+    entriesContainer.innerHTML = '';
+    entriesContainer.appendChild(frag);
+  }
+
+  function update() {
+    const q = (searchInput?.value || '').trim().toLowerCase();
+    const field = (sortField?.value || 'date');
+    const order = (sortOrder?.value || 'desc'); // default newest first
+
+    // Filter by title/author
+    let filtered = blogCards.filter(c => !q || c.title.includes(q) || c.author.includes(q));
+
+    // Sort
+    const dir = order === 'asc' ? 1 : -1;
+    filtered.sort((a, b) => {
+      let cmp = 0;
+      if (field === 'title') {
+        cmp = a.title.localeCompare(b.title);
+      } else if (field === 'author') {
+        cmp = a.author.localeCompare(b.author);
+      } else { // date
+        cmp = a.date - b.date;
+      }
+      if (cmp === 0) cmp = a.index - b.index; // stable
+      return dir * cmp;
     });
 
-    // Blog search & sort
-    const entriesContainer = document.getElementById('blog-entries');
-    let blogCards = Array.from(entriesContainer.querySelectorAll('.blog-card'))
-      .map(card => ({
-        element: card,
-        title: card.dataset.title.toLowerCase(),
-        author: card.dataset.author.toLowerCase(),
-        date: new Date(card.dataset.date)
-      }));
-
-    const searchInput = document.getElementById('blog-search');
-    const sortField   = document.getElementById('blog-sort-field');
-    const sortOrder   = document.getElementById('blog-sort-order');
-
-    function renderCards(cards) {
+    if (filtered.length === 0) {
       entriesContainer.innerHTML = '';
-      cards.forEach(c => entriesContainer.appendChild(c.element));
+      NoResults.show();
+    } else {
+      NoResults.hide();
+      render(filtered);
     }
+  }
 
-    function updateDisplay() {
-      const q = searchInput.value.trim().toLowerCase();
-      let filtered = blogCards.filter(c =>
-        c.title.includes(q) || c.author.includes(q)
-      );
-      const field = sortField.value;
-      const order = sortOrder.value;
-      filtered.sort((a,b) => {
-        let cmp = 0;
-        if (field === 'title')    cmp = a.title.localeCompare(b.title);
-        else if (field === 'author') cmp = a.author.localeCompare(b.author);
-        else if (field === 'date')   cmp = a.date - b.date;
-        return order === 'asc' ? cmp : -cmp;
-      });
-      renderCards(filtered);
-    }
+  // Small debounce for input
+  function debounce(fn, ms = 120) {
+    let t;
+    return (...args) => {
+      clearTimeout(t);
+      t = setTimeout(() => fn.apply(null, args), ms);
+    };
+  }
+  const updateDebounced = debounce(update, 120);
 
-    searchInput.addEventListener('input', updateDisplay);
-    sortField.addEventListener('change', updateDisplay);
-    sortOrder.addEventListener('change', updateDisplay);
+  // Wire up controls
+  if (searchInput) searchInput.addEventListener('input', updateDebounced);
+  if (sortField)   sortField.addEventListener('change', update);
+  if (sortOrder)   sortOrder.addEventListener('change', update);
 
-    // Initial render
-    updateDisplay();
-  </script>
+  // Initial paint
+  update();
+})();
+</script>
 </body>
 </html>
