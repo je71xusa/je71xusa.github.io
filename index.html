@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jaehyun Lee – Freelance Bioinformatician | Bridging computation & experimental sciences">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="OmicFuse: Jaehyun Lee – Freelance Bioinformatician | Bridging computation & experimental sciences">
   <title> OmicFuse | Home </title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -396,7 +397,7 @@
     const formData = new FormData(form);
 
     // Fill helper fields for nicer emails in Formspree dashboard
-    if (hiddenOrigin) hiddenOrigin.value = location.pathname + location.hash;
+    if (hiddenOrigin) hiddenOrigin.value = location.href;
     const reqValue = requestType ? requestType.value : null;
     if (hiddenSubject) hiddenSubject.value = `New OmicFuse Inquiry${reqValue ? ' — ' + reqValue : ''}`;
 
